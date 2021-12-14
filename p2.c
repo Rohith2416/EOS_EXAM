@@ -10,7 +10,7 @@ int *count;
 int main()
 {
     int shmd;
-    shmd=shm_open("/cdacshm",O_RDWR | O_CREAT,S_IRUSR | S_IWUSR);
+    shmd=shm_open("dictionary.txt",O_RDWR | O_CREAT,S_IRUSR | S_IWUSR);
 
     ftruncate(shmd,sizeof(int));
     count=(int*)mmap(NULL,sizeof(int),PROT_READ | PROT_WRITE,MAP_SHARED,shmd,0);
